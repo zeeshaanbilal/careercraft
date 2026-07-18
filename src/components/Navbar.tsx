@@ -11,6 +11,7 @@ import {
   X,
 } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 type MagneticButtonProps = HTMLMotionProps<"button"> & {
   children: React.ReactNode;
@@ -57,6 +58,7 @@ export default function Navbar() {
     damping: 28,
     restDelta: 0.001,
   });
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -100,7 +102,7 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden items-center gap-8 md:flex">
-            <Link href="#tools" className={navLinkClass}>
+            <Link href="/tools" className={navLinkClass}>
               Tools
             </Link>
             <Link href="#guides" className={navLinkClass}>
@@ -115,12 +117,13 @@ export default function Navbar() {
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <button className="rounded-full bg-slate-100/80 px-5 py-2.5 text-sm font-semibold text-slate-700 backdrop-blur-md transition-all hover:bg-slate-200 hover:shadow-sm">
-              Log in
-            </button>
-            <MagneticButton className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all hover:scale-105 hover:shadow-primary/40">
+
+            <MagneticButton 
+              onClick={() => router.push("/tools")}
+              className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all hover:scale-105 hover:shadow-primary/40"
+            >
               <Sparkles size={15} />
-              Get started
+              Explore Tools
               <ChevronRight size={14} />
             </MagneticButton>
           </div>
@@ -145,7 +148,7 @@ export default function Navbar() {
               className="mt-3 overflow-hidden rounded-[2rem] glass-panel md:hidden"
             >
               <div className="space-y-2 p-4">
-                <Link href="#tools" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
+                <Link href="/tools" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   Tools
                 </Link>
                 <Link href="#guides" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
@@ -154,13 +157,11 @@ export default function Navbar() {
                 <Link href="#ai" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   AI Studio
                 </Link>
-                <button className="w-full rounded-2xl bg-slate-100/80 px-4 py-3 text-center text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-200">
-                  Log in
-                </button>
-                <button className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20">
-                  Get started
+
+                <Link href="/tools" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20">
+                  Explore Tools
                   <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             </motion.div>
           ) : null}

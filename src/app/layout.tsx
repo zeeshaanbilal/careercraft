@@ -14,8 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full antialiased">
-      <body className="min-h-full flex flex-col bg-background font-inter text-foreground">
+    <html lang="en" className="antialiased">
+      <body className="flex flex-col min-h-screen bg-background font-inter text-foreground">
         <MouseTracker />
         <SmoothScroll>{children}</SmoothScroll>
       </body>

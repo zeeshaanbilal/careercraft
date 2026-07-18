@@ -15,7 +15,7 @@ import {
 import Link from "next/link";
 
 const categories = [
-  { id: 1, name: "Resume Builder", icon: <Briefcase size={22} />, count: "12 guides", tone: "from-primary/15 to-white" },
+  { id: 1, name: "Resume Builder", icon: <Briefcase size={22} />, count: "Interactive tool", tone: "from-primary/15 to-white" },
   { id: 2, name: "CV Examples", icon: <FileText size={22} />, count: "45 examples", tone: "from-accent-purple/15 to-white" },
   { id: 3, name: "Interview Prep", icon: <MessageSquare size={22} />, count: "20 banks", tone: "from-accent-cyan/15 to-white" },
   { id: 4, name: "AI for Work", icon: <Sparkles size={22} />, count: "15 prompts", tone: "from-slate-200/70 to-white" },
@@ -61,7 +61,7 @@ export default function Categories() {
               whileHover={{ y: -12, scale: 1.02 }}
               className="h-full"
             >
-              <Link href={`/category/${category.name.toLowerCase().replace(/\s+/g, "-")}`} className="block h-full">
+              <Link href={category.id === 1 ? "/tools/resume-builder" : `/category/${category.name.toLowerCase().replace(/\s+/g, "-")}`} className="block h-full">
                 <div 
                   onMouseMove={(e) => {
                     const rect = e.currentTarget.getBoundingClientRect();
@@ -83,7 +83,7 @@ export default function Categories() {
                     <p className="mt-2 text-sm text-slate-600 transition-colors duration-300 group-hover:text-slate-700">{category.count}</p>
                     <div className="mt-auto pt-8">
                       <div className="flex items-center justify-between border-t border-slate-200/80 pt-4 text-sm font-semibold text-slate-700 transition-colors duration-300 group-hover:border-primary/30">
-                        <span className="transition-colors duration-300 group-hover:text-primary">Open category</span>
+                        <span className="transition-colors duration-300 group-hover:text-primary">{category.id === 1 ? "Open tool" : "Open category"}</span>
                         <ArrowUpRight size={18} className="transition-all duration-500 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-primary" />
                       </div>
                     </div>

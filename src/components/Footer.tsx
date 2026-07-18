@@ -39,10 +39,10 @@ export default function Footer() {
               Free Tools
             </h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Resume Headline Generator</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Salary Calculator</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Word Counter</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">QR Code Generator</Link></li>
+              <li><Link href="/tools/resume-headline" className="text-slate-600 transition-colors hover:text-primary">Resume Headline Generator</Link></li>
+              <li><Link href="/tools/salary-calculator" className="text-slate-600 transition-colors hover:text-primary">Salary Calculator</Link></li>
+              <li><Link href="/tools/word-counter" className="text-slate-600 transition-colors hover:text-primary">Word Counter</Link></li>
+              <li><Link href="/tools/qr-generator" className="text-slate-600 transition-colors hover:text-primary">QR Code Generator</Link></li>
             </ul>
           </div>
 
@@ -51,10 +51,10 @@ export default function Footer() {
               Resources
             </h4>
             <ul className="space-y-4">
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Career Guides</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Resume Templates</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">Interview Questions</Link></li>
-              <li><Link href="#" className="text-slate-600 transition-colors hover:text-primary">AI Prompts</Link></li>
+              <li><Link href="/category/career-guides" className="text-slate-600 transition-colors hover:text-primary">Career Guides</Link></li>
+              <li><Link href="/category/resume-templates" className="text-slate-600 transition-colors hover:text-primary">Resume Templates</Link></li>
+              <li><Link href="/category/interview-questions" className="text-slate-600 transition-colors hover:text-primary">Interview Questions</Link></li>
+              <li><Link href="/category/ai-prompts" className="text-slate-600 transition-colors hover:text-primary">AI Prompts</Link></li>
             </ul>
           </div>
 

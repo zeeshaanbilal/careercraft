@@ -7,10 +7,10 @@ import Link from "next/link";
 const tools = [
   {
     id: 1,
-    name: "Resume Headline Generator",
+    name: "Character Counter",
     icon: <FileText size={22} />,
-    desc: "Create a sharper first impression in seconds.",
-    link: "/tools/resume-headline",
+    desc: "Check character limits for social media, meta tags, and SMS.",
+    link: "/tools/character-counter",
     accent: "from-primary/15 to-white",
   },
   {

@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String    @id @default(uuid())
+  name        String
+  slug        String    @unique
+  description String?
+  type        String
+  articles    Article[]
+}
+
+model Article {
+  id               String    @id @default(uuid())
+  categoryId       String    @map("category_id")
+  title            String
+  slug             String    @unique
+  content          String
+  metaTitle        String?   @map("meta_title")
+  metaDescription  String?   @map("meta_description")
+  coverImage       String?   @map("cover_image")
+  status           String
+  publishedAt      DateTime? @map("published_at")
+  category         Category  @relation(fields: [categoryId], references: [id])
+}
+
+model Template {
+  id             String @id @default(uuid())
+  name           String
+  slug           String @unique
+  category       String
+  fileUrl        String @map("file_url")
+  description    String?
+  downloadsCount Int    @default(0) @map("downloads_count")
+}
+
+model Tool {
+  id          String @id @default(uuid())
+  name        String
+  slug        String @unique
+  description String?
+  category    String
+  icon        String?
+}
+
+model NewsletterSubscriber {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  subscribedAt DateTime @default(now()) @map("subscribed_at")
+  status       String   @default("active")
+
+  @@map("newsletter_subscribers")
+}

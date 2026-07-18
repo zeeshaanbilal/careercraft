@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import {
   ArrowRight,
   BrainCircuit,
@@ -135,14 +136,14 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.34, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
-              <button className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5">
+              <Link href="/tools" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5">
                 Start building free
                 <ArrowRight size={16} />
-              </button>
-              <button className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur transition-colors hover:border-primary/30 hover:text-slate-950">
+              </Link>
+              <Link href="/tools" className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white/85 px-6 py-3.5 text-sm font-semibold text-slate-700 shadow-sm backdrop-blur transition-colors hover:border-primary/30 hover:text-slate-950">
                 <WandSparkles size={16} className="text-primary" />
                 Explore demo
-              </button>
+              </Link>
             </motion.div>
           </div>
 
@@ -165,10 +166,10 @@ export default function Hero() {
                         placeholder={placeholderText}
                       />
                     </div>
-                    <button className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-slate-950 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-primary/20">
+                    <Link href="/tools" className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-slate-950 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-primary/20">
                       Search the platform
                       <ArrowRight size={16} />
-                    </button>
+                    </Link>
                   </div>
                   <div className="mt-4 flex flex-wrap items-center justify-center gap-3 px-2 pb-1 text-xs font-medium text-slate-500">
                     <span className="rounded-full bg-slate-900 px-3 py-1 text-white">Resume</span>
@@ -229,7 +230,8 @@ export default function Hero() {
           transition={{ repeat: Infinity, duration: 40, ease: "linear" }}
         >
           {[...featuredTools, ...featuredTools, ...featuredTools, ...featuredTools].map((tool, index) => (
-            <div
+            <Link
+              href={`/features/${tool.title.toLowerCase().replace(/\s+/g, "-")}`}
               key={`${tool.title}-${index}`}
               className="flex shrink-0 items-center gap-4 rounded-full border border-slate-200/80 bg-white px-6 py-3.5 shadow-sm transition-shadow hover:shadow-md"
             >
@@ -240,7 +242,7 @@ export default function Hero() {
                 <p className="text-sm font-semibold text-slate-900">{tool.title}</p>
                 <p className="text-xs text-slate-500">{tool.desc}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </motion.div>
       </div>
