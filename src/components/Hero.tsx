@@ -114,7 +114,7 @@ export default function Hero() {
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, delay: 0.05, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 font-display text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-[3.5rem] xl:text-[4rem] lg:leading-[1.05]"
             >
               <span className="whitespace-nowrap">Design your next career</span> <br className="hidden lg:block" />
@@ -124,7 +124,7 @@ export default function Hero() {
             <motion.p
               initial={{ opacity: 0, y: 28 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.18, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="mt-6 max-w-xl text-lg leading-8 text-slate-600 sm:text-xl"
             >
               CareerCraft blends resume intelligence, interview prep, and productivity tools into one elegant workspace for modern professionals.
@@ -133,7 +133,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.34, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
               className="mt-10 flex flex-wrap items-center gap-4"
             >
               <Link href="/tools" className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5">
@@ -151,7 +151,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.26, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
               className="w-full"
             >
               <div className="group relative rounded-[2rem] p-[1px] transition-transform duration-300 hover:-translate-y-0.5">
@@ -186,7 +186,7 @@ export default function Hero() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 0.4, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
             >
               <h3 className="font-display text-2xl font-bold text-slate-950">Your AI-Powered Insights at-a-Glance</h3>
               <div className="mt-6 grid gap-4 sm:grid-cols-3">
@@ -199,7 +199,7 @@ export default function Hero() {
                     key={stat.label}
                     initial={{ opacity: 0, y: 18 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 + index * 0.08 }}
+                    transition={{ delay: 0.2 + index * 0.05 }}
                     className="premium-card flex flex-col items-start rounded-[1.5rem] p-5 shadow-sm"
                   >
                     <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-slate-950 text-white">

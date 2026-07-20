@@ -114,6 +114,9 @@ export default function Navbar() {
             <Link href="#testimonials" className={navLinkClass}>
               Stories
             </Link>
+            <Link href="/blogs" className={navLinkClass}>
+              Blogs
+            </Link>
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
@@ -156,6 +159,9 @@ export default function Navbar() {
                 </Link>
                 <Link href="#ai" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   AI Studio
+                </Link>
+                <Link href="/blogs" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
+                  Blogs
                 </Link>
 
                 <Link href="/tools" className="mt-2 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-primary via-accent-purple to-accent-cyan px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20">

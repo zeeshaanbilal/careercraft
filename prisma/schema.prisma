@@ -4,7 +4,6 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
 model Category {
@@ -56,4 +55,18 @@ model NewsletterSubscriber {
   status       String   @default("active")
 
   @@map("newsletter_subscribers")
+}
+
+model BlogPost {
+  id        String   @id @default(uuid())
+  title     String
+  excerpt   String
+  content   String
+  category  String
+  author    String
+  date      String
+  readTime  String
+  image     String
+  gradient  String
+  createdAt DateTime @default(now())
 }
