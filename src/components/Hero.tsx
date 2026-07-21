@@ -25,7 +25,7 @@ const words = [
   "Search career guides...",
 ];
 
-export default function Hero() {
+function SearchInput() {
   const [placeholderText, setPlaceholderText] = useState("");
   const [isTyping, setIsTyping] = useState(true);
   const [wordIndex, setWordIndex] = useState(0);
@@ -59,6 +59,17 @@ export default function Hero() {
       }
     };
   }, [placeholderText, isTyping, wordIndex]);
+
+  return (
+    <input
+      type="text"
+      className="w-full bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
+      placeholder={placeholderText}
+    />
+  );
+}
+
+export default function Hero() {
 
   const featuredTools = [
     {
@@ -160,11 +171,7 @@ export default function Hero() {
                   <div className="flex flex-col gap-3 md:flex-row md:items-center">
                     <div className="flex flex-1 items-center gap-3 rounded-[1.4rem] border border-slate-200/80 bg-white/90 px-5 py-4 shadow-sm">
                       <Search size={20} className="text-primary" />
-                      <input
-                        type="text"
-                        className="w-full bg-transparent text-base text-slate-900 outline-none placeholder:text-slate-400"
-                        placeholder={placeholderText}
-                      />
+                      <SearchInput />
                     </div>
                     <Link href="/tools" className="inline-flex items-center justify-center gap-2 rounded-[1.4rem] bg-slate-950 px-6 py-4 text-sm font-semibold text-white shadow-lg shadow-slate-900/10 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-primary/20">
                       Search the platform
