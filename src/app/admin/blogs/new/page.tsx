@@ -11,6 +11,19 @@ export default function NewBlogPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
+  const [imageType, setImageType] = useState<"url" | "upload">("url");
+  const [imageBase64, setImageBase64] = useState("");
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImageBase64(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -18,6 +31,10 @@ export default function NewBlogPage() {
     setError("");
 
     const formData = new FormData(event.currentTarget);
+    
+    if (imageType === "upload" && imageBase64) {
+      formData.set("image", imageBase64);
+    }
     
     // Auto-generate some gradient based on category or random
     const gradients = [
@@ -127,14 +144,45 @@ export default function NewBlogPage() {
             </div>
 
             <div className="space-y-2">
-              <label className="text-sm font-semibold text-slate-700">Cover Image URL</label>
-              <input 
-                type="url" 
-                name="image" 
-                required
-                placeholder="https://images.unsplash.com/photo-..." 
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
-              />
+              <div className="flex items-center justify-between">
+                <label className="text-sm font-semibold text-slate-700">Cover Image</label>
+                <div className="flex gap-2 bg-slate-100 p-1 rounded-lg">
+                  <button
+                    type="button"
+                    onClick={() => setImageType("url")}
+                    className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${imageType === "url" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                  >
+                    Image URL
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setImageType("upload")}
+                    className={`px-3 py-1 text-xs font-medium rounded-md transition-colors ${imageType === "upload" ? "bg-white text-slate-900 shadow-sm" : "text-slate-500 hover:text-slate-700"}`}
+                  >
+                    Upload File
+                  </button>
+                </div>
+              </div>
+              
+              {imageType === "url" ? (
+                <input 
+                  type="url" 
+                  name="image" 
+                  required={imageType === "url"}
+                  placeholder="https://images.unsplash.com/photo-..." 
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                />
+              ) : (
+                <div className="w-full px-4 py-3 rounded-xl border border-slate-200 bg-white">
+                  <input 
+                    type="file" 
+                    accept="image/*"
+                    required={imageType === "upload"}
+                    onChange={handleImageUpload}
+                    className="w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-primary/10 file:text-primary hover:file:bg-primary/20 cursor-pointer"
+                  />
+                </div>
+              )}
             </div>
 
             <div className="space-y-2">

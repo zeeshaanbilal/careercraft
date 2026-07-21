@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock, User, Share2, Link as LinkIcon, Mail } from "lucide-react";
@@ -96,7 +97,7 @@ export default async function BlogPostPage({ params }: any) {
             </div>
 
             <div className="flex-1 prose prose-slate prose-lg max-w-none prose-headings:font-display prose-headings:font-bold prose-a:text-primary prose-img:rounded-xl">
-              <div dangerouslySetInnerHTML={{ __html: post.content || "<p>Content coming soon...</p>" }} />
+              <ReactMarkdown>{post.content || "Content coming soon..."}</ReactMarkdown>
             </div>
 
           </div>
