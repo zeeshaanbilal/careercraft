@@ -31,7 +31,9 @@ function MagneticButton({ children, className, ...props }: MagneticButtonProps) 
     const offsetX = clientX - (left + width / 2);
     const offsetY = clientY - (top + height / 2);
 
-    setPosition({ x: offsetX * 0.18, y: offsetY * 0.18 });
+    window.requestAnimationFrame(() => {
+      setPosition({ x: offsetX * 0.18, y: offsetY * 0.18 });
+    });
   };
 
   return (
@@ -105,13 +107,13 @@ export default function Navbar() {
             <Link href="/tools" className={navLinkClass}>
               Tools
             </Link>
-            <Link href="#guides" className={navLinkClass}>
+            <Link href="/#guides" className={navLinkClass}>
               Guides
             </Link>
-            <Link href="#ai" className={navLinkClass}>
+            <Link href="/#ai" className={navLinkClass}>
               AI Studio
             </Link>
-            <Link href="#testimonials" className={navLinkClass}>
+            <Link href="/#testimonials" className={navLinkClass}>
               Stories
             </Link>
             <Link href="/blogs" className={navLinkClass}>
@@ -154,10 +156,10 @@ export default function Navbar() {
                 <Link href="/tools" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   Tools
                 </Link>
-                <Link href="#guides" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
+                <Link href="/#guides" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   Guides
                 </Link>
-                <Link href="#ai" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
+                <Link href="/#ai" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">
                   AI Studio
                 </Link>
                 <Link href="/blogs" className="block rounded-2xl px-4 py-3 text-sm font-medium text-slate-600 transition-colors hover:bg-white">

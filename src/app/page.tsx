@@ -1,13 +1,15 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import HoverShowcase from "@/components/HoverShowcase";
-import FeaturedTools from "@/components/FeaturedTools";
-import Categories from "@/components/Categories";
-import AiFeatures from "@/components/AiFeatures";
-import Statistics from "@/components/Statistics";
-import Testimonials from "@/components/Testimonials";
-import Newsletter from "@/components/Newsletter";
-import Footer from "@/components/Footer";
+import dynamic from "next/dynamic";
+
+const HoverShowcase = dynamic(() => import("@/components/HoverShowcase"), { ssr: true });
+const FeaturedTools = dynamic(() => import("@/components/FeaturedTools"), { ssr: true });
+const Categories = dynamic(() => import("@/components/Categories"), { ssr: true });
+const AiFeatures = dynamic(() => import("@/components/AiFeatures"), { ssr: true });
+const Statistics = dynamic(() => import("@/components/Statistics"), { ssr: true });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: true });
+const Newsletter = dynamic(() => import("@/components/Newsletter"), { ssr: true });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: true });
 
 export default function Home() {
   return (
