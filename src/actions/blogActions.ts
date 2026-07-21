@@ -6,7 +6,7 @@ import { Pool } from 'pg';
 import { PrismaPg } from '@prisma/adapter-pg';
 
 const prismaClientSingleton = () => {
-  const connectionString = "postgresql://neondb_owner:npg_8cV1ixKaHRTu@ep-frosty-glade-awplfp6j-pooler.c-12.us-east-1.aws.neon.tech/neondb?sslmode=require";
+  const connectionString = process.env.DATABASE_URL!;
   const pool = new Pool({ connectionString });
   const adapter = new PrismaPg(pool);
   return new PrismaClient({ adapter });
